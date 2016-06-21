@@ -34,20 +34,19 @@
       <div class="row">
        
         <div class="col-md-4">
-            <form>
+            <form id="phoneForm" onsubmit="return submit_form()">
                   <h2>Add Number</h2>
-                  <div class="form-group">
-                    <input type="text" class="form-control" placeholder="First Name">
+                  <div id="firstName" class="form-group">
+                    <input  type="text" class="form-control" placeholder="First Name">
                   </div>
-                  <div class="form-group">
+                  <div id="lastName" class="form-group">
                     <input type="text" class="form-control" placeholder="Last Name">
                   </div>
-                  <div class="form-group">
-                    
+                  <div id="phone" class="form-group">                    
                     <input type="phone" class="form-control" placeholder="Phone" >
                   </div>
                   
-                  <button type="submit" class="btn btn-add">Add</button>
+                  <button id="submit" type="submit" class="btn btn-add" >Add</button>
             </form>
           
         </div>
@@ -56,15 +55,17 @@
           <table class="table table-striped">
                 <thead>
                       <tr>
-                            <th width="160">Last Name</th>
+                            <th width="160" >Last Name</th>
                             <th width="160">First Name</th>
                             <th>Phone</th>
                             <th><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></th>
                       </tr>
                 </thead>
-                <tbody>
+                <tbody id="phoneRecord">
                     <tr>
-                        <td></td>
+                        <td>Jenna</td>
+                        <td>Shenk</td>
+                        <td> 123-123-1234</td>
                     </tr>
                 </tbody>
           </table>
@@ -74,6 +75,29 @@
       </div>
       
     </div>
+
+<script>
+
+$(document).ready(function(){ 
+
+     //when the <submit> button is clicked
+     $('#submit').click(function(){
+
+     //store the user's entry in a variable
+     var firstName = document.getElementById('firstName').value;
+
+     //update the html in the second form to show the user's entered name
+     $('#data').value(firstName);
+    });
+}
+
+
+
+
+// add rows and cells 
+
+
+</script>  
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
