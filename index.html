@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Phonebook</title>
+
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- My Styles -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+
+    
+  </head>
+  <body>
+
+    <div class="container-fluid"> <!-- Header -->
+      <div id="banner" class="row">
+        <div class="col-md-3">
+          <img class="img-responsive" src="https://www.unleashed-technologies.com/sites/all/themes/ut_responsive/images/svgs/ut_logo_lg.svg" alt="logo">          
+        </div>
+        <div class="col-md-9">
+          <h1>Phone Book</h1>
+        </div>
+        
+      </div>
+      
+    </div>
+    <div class="container"> <!-- Phone Book -->
+      <div class="row">
+       
+        <div class="col-md-4">
+            <form>
+                  <h2>Add Number</h2>
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="First Name">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Last Name">
+                  </div>
+                  <div class="form-group">
+                    
+                    <input type="phone" class="form-control" placeholder="Phone" >
+                  </div>
+                  
+                  <button type="submit" class="btn btn-add">Add</button>
+            </form>
+          
+        </div>
+        <div class="col-md-8">
+
+          <table class="table table-striped">
+                <thead>
+                      <tr>
+                            <th width="160">Last Name</th>
+                            <th width="160">First Name</th>
+                            <th>Phone</th>
+                            <th><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></th>
+                      </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </tbody>
+          </table>
+          
+        </div> 
+        
+      </div>
+      
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
+

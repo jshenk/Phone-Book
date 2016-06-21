@@ -1,0 +1,44 @@
+
+/*General*/
+
+h1,
+h2,
+h3,
+p {
+	font-family: 'Roboto', sans-serif;
+
+}
+
+/*Header*/
+
+#banner {
+	background-color: #3C4965;
+	min-height: 20vh;
+}
+
+#banner h1 {
+	color: #fff;
+	font-size: 5em;
+	padding: 4vh 0 0 0;
+	margin: 0;
+}
+
+#banner img {
+	padding-top: 35px;
+}
+
+/*Table*/
+
+.table,
+form {
+	margin-top: 20px;
+}
+
+/*Form*/
+
+.btn-add {
+	background-color: #e05b20; 
+	border-radius: 3px;
+	color: #fff;
+	width: 40%;
+}

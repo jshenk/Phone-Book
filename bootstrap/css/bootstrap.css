@@ -113,8 +113,8 @@ input,
 optgroup,
 select,
 textarea {
-/*  margin: 0;
-*/  font: inherit;
+  margin: 0;
+  font: inherit;
   color: inherit;
 }
 button {
@@ -1184,8 +1184,8 @@ h6,
 .h4,
 .h5,
 .h6 {
-/*  font-family: inherit;
-*/  font-weight: 500;
+  font-family: inherit;
+  font-weight: 500;
   line-height: 1.1;
   color: inherit;
 }
