@@ -35,15 +35,15 @@
        
         <div class="col-md-4">
             <form id="phoneForm" >
-                  <h2>Add Number</h2>
+                  <h2>Add Contact</h2>
                   <div  class="form-group">
-                    <input id="firstName" type="text" class="form-control" placeholder="First Name">
+                    <input id="firstName" type="text" class="form-control" placeholder="First Name" required>
                   </div>
                   <div  class="form-group">
-                    <input id="lastName" type="text" class="form-control" placeholder="Last Name">
+                    <input id="lastName" type="text" class="form-control" placeholder="Last Name" required>
                   </div>
                   <div  class="form-group">                    
-                    <input id="phone" type="tel" class="form-control" placeholder="Phone" >
+                    <input id="phone" type="tel" pattern="^\(\d{3}\) \d{3}-\d{4}$" required class="form-control" placeholder="(xxx) xxx-xxxx">
                   </div>
                   
                   <button id="submit" type="submit" class="btn btn-add" >Add</button>
@@ -55,17 +55,15 @@
           <table id="phoneRecord" class="table table-striped">
                 <thead>
                       <tr>
-                            <th width="160" >Last Name</th>
-                            <th width="160">First Name</th>
-                            <th>Phone</th>
-                            <th><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></th>
+                        <th width="160" >Last Name</th>
+                        <th width="160">First Name</th>
+                        <th>Phone</th>
+                        <th><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></th>
                       </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Jenna</td>
-                        <td>Shenk</td>
-                        <td> 123-123-1234</td>
+                        
                     </tr>
                 </tbody>
           </table>
@@ -75,40 +73,42 @@
       </div>
       
     </div>
-<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-<script>
+  <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script>
+  
+  $(document).ready(function(){ 
+  
+       //when the <submit> button of form is clicked
+       $('#submit').click(function(){
+  
+       //store the user's entry in a variable
+       var firstName = document.getElementById('firstName').value;
+       var lastName = document.getElementById('lastName').value;
+       var phone = document.getElementById('phone').value;
+  
+       //add tr and td with user information 
+      $('#phoneRecord tbody').append('<tr><td>' + firstName + '</td><td>' + 
+      lastName + '</td><td>' + phone + 
+      '</td><td><span class="glyphicon glyphicon-trash" onclick="removeRow(this)"></span></td>');
+  
+      //return false;
+  
+      });
+  
 
-$(document).ready(function(){ 
+  
+  });
+  
+  // on click of trashcan, delete row
+  
+      function removeRow(row) {
+        row.parentElement.parentElement.remove();
+      }
+  
+  
 
-     //when the <submit> button is clicked
-     $('#submit').click(function(){
-
-     //store the user's entry in a variable
-     var firstName = document.getElementById('firstName').value;
-     console.log(firstName);
-
-     var lastName = document.getElementById('lastName').value;
-     console.log(lastName);
-
-     var phone = document.getElementById('phone').value;
-     console.log(phone);
-
-     //update the html in the second form to show the user's entered name
-    $('#phoneRecord tbody').append('<tr><td>' + firstName + '</td><td>' + lastName + '</td><td>' + phone + '</td>');
-
-    return false;
-
-    });
-
-
-});
-
-
-
-
-// add rows and cells 
-
-
+  
+  
 </script>  
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
