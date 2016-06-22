@@ -34,16 +34,16 @@
       <div class="row">
        
         <div class="col-md-4">
-            <form id="phoneForm" onsubmit="return submit_form()">
+            <form id="phoneForm" >
                   <h2>Add Number</h2>
-                  <div id="firstName" class="form-group">
-                    <input  type="text" class="form-control" placeholder="First Name">
+                  <div  class="form-group">
+                    <input id="firstName" type="text" class="form-control" placeholder="First Name">
                   </div>
-                  <div id="lastName" class="form-group">
-                    <input type="text" class="form-control" placeholder="Last Name">
+                  <div  class="form-group">
+                    <input id="lastName" type="text" class="form-control" placeholder="Last Name">
                   </div>
-                  <div id="phone" class="form-group">                    
-                    <input type="phone" class="form-control" placeholder="Phone" >
+                  <div  class="form-group">                    
+                    <input id="phone" type="tel" class="form-control" placeholder="Phone" >
                   </div>
                   
                   <button id="submit" type="submit" class="btn btn-add" >Add</button>
@@ -52,7 +52,7 @@
         </div>
         <div class="col-md-8">
 
-          <table class="table table-striped">
+          <table id="phoneRecord" class="table table-striped">
                 <thead>
                       <tr>
                             <th width="160" >Last Name</th>
@@ -61,7 +61,7 @@
                             <th><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></th>
                       </tr>
                 </thead>
-                <tbody id="phoneRecord">
+                <tbody>
                     <tr>
                         <td>Jenna</td>
                         <td>Shenk</td>
@@ -75,7 +75,7 @@
       </div>
       
     </div>
-
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script>
 
 $(document).ready(function(){ 
@@ -85,11 +85,23 @@ $(document).ready(function(){
 
      //store the user's entry in a variable
      var firstName = document.getElementById('firstName').value;
+     console.log(firstName);
+
+     var lastName = document.getElementById('lastName').value;
+     console.log(lastName);
+
+     var phone = document.getElementById('phone').value;
+     console.log(phone);
 
      //update the html in the second form to show the user's entered name
-     $('#data').value(firstName);
+    $('#phoneRecord tbody').append('<tr><td>' + firstName + '</td><td>' + lastName + '</td><td>' + phone + '</td>');
+
+    return false;
+
     });
-}
+
+
+});
 
 
 
@@ -102,7 +114,7 @@ $(document).ready(function(){
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <!-- <script src="js/bootstrap.min.js"></script> -->
   </body>
 </html>
 
