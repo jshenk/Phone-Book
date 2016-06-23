@@ -22,8 +22,8 @@ th {
 
 #banner h1 {
 	color: #fff;
-	font-size: 5em;
-	padding: 4vh 0 0 0;
+	font-size: 3em;
+	padding: 35px 0 0 0;
 	margin: 0;
 }
 
@@ -46,4 +46,8 @@ form {
 	border-radius: 3px;
 	color: #fff;
 	width: 40%;
+}
+
+.blue {
+	background-color: blue;
 }

@@ -37,13 +37,13 @@
             <form id="phoneForm" >
                   <h2>Add Contact</h2>
                   <div  class="form-group">
-                    <input id="firstName" type="text" class="form-control" placeholder="First Name" required>
+                    <input id="firstName" type="text" class="form-control" placeholder="First Name" >
                   </div>
                   <div  class="form-group">
-                    <input id="lastName" type="text" class="form-control" placeholder="Last Name" required>
+                    <input id="lastName" type="text" class="form-control" placeholder="Last Name" >
                   </div>
                   <div  class="form-group">                    
-                    <input id="phone" type="tel" pattern="^\(\d{3}\) \d{3}-\d{4}$" required class="form-control" placeholder="(xxx) xxx-xxxx">
+                    <input id="phone" type="tel" pattern="^\(\d{3}\) \d{3}-\d{4}$"  class="form-control" placeholder="(xxx) xxx-xxxx">
                   </div>
                   
                   <button id="submit" type="submit" class="btn btn-add" >Add</button>
@@ -62,9 +62,7 @@
                       </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        
-                    </tr>
+                  
                 </tbody>
           </table>
           
@@ -78,26 +76,63 @@
   
   $(document).ready(function(){ 
   
-       //when the <submit> button of form is clicked
-       $('#submit').click(function(){
-  
-       //store the user's entry in a variable
-       var firstName = document.getElementById('firstName').value;
-       var lastName = document.getElementById('lastName').value;
-       var phone = document.getElementById('phone').value;
-  
-       //add tr and td with user information 
+      //when the <submit> button of form is clicked
+      $('#submit').click(function(){
+      
+      //store the user's entry in a variable
+      var firstName = document.getElementById('firstName').value;
+      var lastName = document.getElementById('lastName').value;
+      var phone = document.getElementById('phone').value;
+      
+      //add tr and td with user information 
       $('#phoneRecord tbody').append('<tr><td>' + firstName + '</td><td>' + 
       lastName + '</td><td>' + phone + 
       '</td><td><span class="glyphicon glyphicon-trash" onclick="removeRow(this)"></span></td>');
-  
-      //return false;
+      
+      // setting up a variable that targets the last row of the table body
+      var lastRow = $("#phoneRecord tbody tr").last();
+      
+      // on that last row, add the click event 
+      // to highlight row when click
+      lastRow.on('click', function(){
+        $(this).css("background-color", "#cccccc");
+        
+      // var record = $('tr');
+      // var textBox =$('<textarea />');
+      // var recordText = record.html();
+      
+      // record.replaceWith(textBox);
+      // textBox.val(recordText);  
+
+      });
+      
+      return false;
   
       });
   
+      // // select header, set header variable
+      // var header = $('h2');
+      // // set variable for textbox
+      // var textBox = $('<textarea />');
+      // // set variable for current header text
+      // var headerText = header.html();
+      
+      // // replace h2 tags with new textbox tags
+      // header.replaceWith(textBox);
+      
+      // // populate textbox with prior text
+      // textBox.val(headerText);
+      
+      
+      
+      
+      
+        
 
   
   });
+  
+ 
   
   // on click of trashcan, delete row
   
