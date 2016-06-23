@@ -43,7 +43,7 @@
                     <input id="lastName" type="text" class="form-control" placeholder="Last Name" >
                   </div>
                   <div  class="form-group">                    
-                    <input id="phone" type="tel" pattern="^\(\d{3}\) \d{3}-\d{4}$"  class="form-control" placeholder="(xxx) xxx-xxxx">
+                    <input id="phone" type="tel"   class="form-control" placeholder="(xxx) xxx-xxxx">
                   </div>
                   
                   <button id="submit" type="submit" class="btn btn-add" >Add</button>
@@ -76,6 +76,7 @@
   <script>
   
   $(document).ready(function(){ 
+
   
       //when the <submit> button of form is clicked
       $('#submit').click(function(){
@@ -84,62 +85,70 @@
       var firstName = document.getElementById('firstName').value;
       var lastName = document.getElementById('lastName').value;
       var phone = document.getElementById('phone').value;
+      var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+// Phone Validation 
+
+      if (phone == "") {
+        alert("you didn't enter a phone number");
+        return false;
+      }
+
+      else if (phone.length < 10) {
+        alert("this is not a complete number");
+        return false;
+      }
+
+      else if (phone.match(/[a-z]/i)) {
+        alert("only numbers please");
+        return false;
+      }
+
+      else if (phone.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/)) {
+
+        alert("correct number");
+      }
+      else {
+        alert("check your formatting")
+        return false;
+      }
       
+      
+// Add records 
+
       //add tr and td with user information 
       $('#phoneRecord tbody').append('<tr><td contenteditable = "true">' + firstName + '</td><td contenteditable = "true">' + 
       lastName + '</td><td contenteditable = "true">' + phone + 
-      '</td><td><span class="glyphicon glyphicon-trash" onclick="removeRow(this)"></span></td><td></td>');
-      
+      '</td><td><span class="glyphicon glyphicon-trash" onclick="removeRow(this)"></span></td><td>Favorite</td>');
+
+// Highlighting 
+
       // setting up a variable that targets the last row of the table body
       var lastRow = $("#phoneRecord tbody tr td").last();
       
       // on that last row, add the click event 
       // to highlight row when click
       lastRow.on('click', function(){
-        $(this).css("background-color", "#cccccc");
-        
-      // var record = $('tr');
-      // var textBox =$('<textarea />');
-      // var recordText = record.html();
-      
-      // record.replaceWith(textBox);
-      // textBox.val(recordText);  
+        $(this).css({"background-color": "#e05b20", "color": "#fff" });
 
-      });
+        });
+
       
       return false;
-  
+        
       });
   
-      // // select header, set header variable
-      // var header = $('h2');
-      // // set variable for textbox
-      // var textBox = $('<textarea />');
-      // // set variable for current header text
-      // var headerText = header.html();
-      
-      // // replace h2 tags with new textbox tags
-      // header.replaceWith(textBox);
-      
-      // // populate textbox with prior text
-      // textBox.val(headerText);
-      
-      
-      
-      
-      
-        
-
-  
+ 
   });
   
  
   
-  // on click of trashcan, delete row
+// on click of trashcan, delete row
   
       function removeRow(row) {
         row.parentElement.parentElement.remove();
       }
+
+     
   
   
 
