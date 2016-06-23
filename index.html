@@ -23,8 +23,15 @@
         <div class="col-md-3">
           <img class="img-responsive" src="https://www.unleashed-technologies.com/sites/all/themes/ut_responsive/images/svgs/ut_logo_lg.svg" alt="logo">          
         </div>
-        <div class="col-md-9">
+        <div class="col-md-6">
           <h1>Phone Book</h1>
+        </div>
+        <div class="col-md-3 contact">
+          
+            <p>Jenna Shenk 2016</p>
+            <p><a href="www.jennashenk.com">www.jennashenk.com</a></p>
+            <p><a href="github.com/jshenk">github.com/jshenk</a></p>
+          
         </div>
         
       </div>
@@ -55,11 +62,11 @@
           <table id="phoneRecord" class="table table-striped">
                 <thead>
                       <tr>
-                        <th width="160" >Last Name</th>
+                        <th width="160"><span class="glyphicon glyphicon-user"></span>Last Name</th>
                         <th width="160">First Name</th>
-                        <th>Phone</th>
-                        <th><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></th>
-                        <th>Favorite</th>
+                        <th><span class="glyphicon glyphicon-phone-alt"></span>Phone</th>
+                        <th></th>
+                        <th></th>
                       </tr>
                 </thead>
                 <tbody>
@@ -68,10 +75,14 @@
           </table>
           
         </div> 
+
         
       </div>
+          
       
     </div>
+
+
   <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
   <script>
   
@@ -81,24 +92,37 @@
       //when the <submit> button of form is clicked
       $('#submit').click(function(){
       
-      //store the user's entry in a variable
+//store the user's form entry in a variable
       var firstName = document.getElementById('firstName').value;
       var lastName = document.getElementById('lastName').value;
       var phone = document.getElementById('phone').value;
+
 // Phone Validation 
 
-      if (phone == "") {
-        alert("you didn't enter a phone number");
+      if (phone == "" && firstName == "" && lastName =="") {
+        alert("Whoops, you entered a blank form");
+        return false;
+      }
+      else if (phone =="")  {
+        alert("This is a phonebook, so your going to need to put a phone number in");
+        return false;
+      }
+      else if (firstName =="")   {
+        alert("That's embarrassing, you forgot their first name?");
+        return false;
+      }
+      else if (lastName =="" )  {
+        alert("When you have 8 Johns in this phonebook, your going to wish you had added a last name");
         return false;
       }
 
       else if (phone.length < 10) {
-        alert("this is not a complete number");
+        alert("This is not a complete number");
         return false;
       }
 
       else if (phone.match(/[a-z]/i)) {
-        alert("only numbers please");
+        alert("Only numbers in this field please");
         return false;
       }
 
@@ -106,17 +130,18 @@
 
       }
       else {
-        alert("check your formatting")
+        alert("check your phone number formatting");
         return false;
       }
+
       
 
 // Add records 
 
       //add tr and td with user information 
-      $('#phoneRecord tbody').append('<tr><td contenteditable = "true">' + firstName + '</td><td contenteditable = "true">' + 
-      lastName + '</td><td contenteditable = "true" onblur = "validatePhone(this)" onfocus = "currentPhone(this)">' + phone + 
-      '</td><td><span class="glyphicon glyphicon-trash" onclick="removeRow(this)"></span></td><td>Favorite</td>');
+      $('#phoneRecord tbody').append('<tr><td contenteditable = "true">' + firstName + '</td><td contenteditable = "true">' + lastName + '</td><td contenteditable = "true" onblur = "validatePhone(this)" onfocus = "currentPhone(this)">' + phone + '</td><td><span class="glyphicon glyphicon-trash" onclick="removeRow(this)"></span></td><td>Favorite</td>');
+
+ // Reset the form 
 
       document.getElementById('firstName').value = "";
       document.getElementById('lastName').value = "";
@@ -128,19 +153,16 @@
       // setting up a variable that targets the last row of the table body
       var lastRow = $("#phoneRecord tbody tr td").last();
       
-      // on that last row, add the click event 
-      // to highlight row when click
+      // on that last row, add the click event to highlight row when click
+      
       lastRow.on('click', function(){
-        $(this).css({"background-color": "#e05b20", "color": "#fff" });
+        $(this).css({"background-color": "#e05b20", "color": "#fff", "text-align": "center" });
 
         });
-
-
       
       return false;
         
-      });
-  
+      });  
  
   });
   
@@ -148,21 +170,21 @@
   
 // on click of trashcan, delete row
   
-      function removeRow(row) {
-        row.parentElement.parentElement.remove();
-      }
+    function removeRow(row) {
+      row.parentElement.parentElement.remove();
+    }
 
-      function validatePhone(el) {
-        if (el.innerText.match(/^\(([0-9]{3})\)[ ]([0-9]{3})[-]([0-9]{4})$/)) {
+    function validatePhone(el) {
+      if (el.innerText.match(/^\(([0-9]{3})\)[ ]([0-9]{3})[-]([0-9]{4})$/)) {
 
-          alert("correct number");
-        }
-        else {
-          alert("check your formatting");
-          el.innerText = currentNum;
-          return false;
-        }
+        alert("correct number");
       }
+      else {
+        alert("check your formatting");
+        el.innerText = currentNum;
+        return false;
+      }
+    }
 
 // set up global variable, take the content of sell when you click into it, set your new variable to own that content, call this variable above when the user is incorrect, and reset the inner text we selected to it
       var currentNum = 0;
@@ -170,13 +192,6 @@
         currentNum = num.innerText;
 
       }
-
-     
-  
-  
-
-  
-  
 </script>  
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

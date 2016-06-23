@@ -9,8 +9,19 @@ td,
 th {
 	font-family: 'Roboto', sans-serif;
 	color: #626A70;
-;
 
+}
+
+th {
+	font-size: 18px;
+}
+
+td:last {
+	text-align: center;
+}
+
+body {
+	background-color: #eee;
 }
 
 /*Header*/
@@ -46,6 +57,22 @@ form {
 	border-radius: 3px;
 	color: #fff;
 	width: 40%;
+}
+
+.glyphicon {
+	padding-right: 15px;
+}
+
+/*Footer*/
+
+.contact p,
+.contact a,
+.contact a:hover {
+	
+	color: #fff;
+	font-family: 'Roboto', sans-serif;
+	font-size: 18px;
+
 }
 
 
