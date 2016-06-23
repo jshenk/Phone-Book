@@ -59,6 +59,7 @@
                         <th width="160">First Name</th>
                         <th>Phone</th>
                         <th><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></th>
+                        <th>Favorite</th>
                       </tr>
                 </thead>
                 <tbody>
@@ -85,12 +86,12 @@
       var phone = document.getElementById('phone').value;
       
       //add tr and td with user information 
-      $('#phoneRecord tbody').append('<tr><td>' + firstName + '</td><td>' + 
-      lastName + '</td><td>' + phone + 
-      '</td><td><span class="glyphicon glyphicon-trash" onclick="removeRow(this)"></span></td>');
+      $('#phoneRecord tbody').append('<tr><td contenteditable = "true">' + firstName + '</td><td contenteditable = "true">' + 
+      lastName + '</td><td contenteditable = "true">' + phone + 
+      '</td><td><span class="glyphicon glyphicon-trash" onclick="removeRow(this)"></span></td><td></td>');
       
       // setting up a variable that targets the last row of the table body
-      var lastRow = $("#phoneRecord tbody tr").last();
+      var lastRow = $("#phoneRecord tbody tr td").last();
       
       // on that last row, add the click event 
       // to highlight row when click
