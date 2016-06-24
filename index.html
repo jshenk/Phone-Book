@@ -119,11 +119,11 @@
         return false;
       }
       else if (phone =="")  {
-        alert("This is a phonebook, so your going to need to put a phone number in");
+        alert("This is a phonebook, so your going to need to include a phone number");
         return false;
       }
       else if (firstName =="")   {
-        alert("That's embarrassing, you forgot their first name?");
+        alert("That's embarrassing, you really don't remember their first name?");
         return false;
       }
       else if (lastName =="" )  {
@@ -145,7 +145,7 @@
 
       }
       else {
-        alert("check your phone number formatting");
+        alert("Check your phone number formatting, should match (999) 999-9999");
         return false;
       }
 
@@ -220,7 +220,7 @@
       }
     }
 
-// reset record text
+// reset record text if changed
       var currentNum = 0;
       function currentPhone(num) {
         currentNum = num.innerText;
