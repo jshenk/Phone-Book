@@ -20,21 +20,35 @@
 
     <div class="container-fluid"> <!-- Header -->
       <div id="banner" class="row">
-        <div class="col-md-3">
-          <img class="img-responsive" src="https://www.unleashed-technologies.com/sites/all/themes/ut_responsive/images/svgs/ut_logo_lg.svg" alt="logo">          
-        </div>
-        <div class="col-md-6">
-          <h1>Phone Book</h1>
-        </div>
-        <div class="col-md-3 contact">
-          
-            <p>Jenna Shenk 2016</p>
-            <p><a href="www.jennashenk.com">www.jennashenk.com</a></p>
-            <p><a href="github.com/jshenk">github.com/jshenk</a></p>
-          
+
+        <div class="col-md-9 col-sm-9">
+          <img class="img-responsive" src="https://www.unleashed-technologies.com/sites/all/themes/ut_responsive/images/svgs/ut_logo_lg.svg" alt="logo">   
+          <h1>Phone Book</h1>       
+        </div>    
+
+        <div id="contact-bar" class="col-md-3 col-sm-3  contact-close">
+            <div class="contact">
+              <p>Want to see more of my work?            
+                <a href="http://www.jennashenk.com/" target="_blank">
+                <span class="glyphicon glyphicon-globe"></span>www.jennashenk.com</a>
+                <a href="https://github.com/jshenk" target="_blank">
+                <span class="glyphicon glyphicon-link"> </span>github.com/jshenk</a>
+              </p>
+              <p>Here is my contact information when you decide you want to hire me:            
+                <a href="tel:301-509-9634"><span class="glyphicon glyphicon-phone-alt"></span>
+                 301-509-9634</a>              
+                <a href="mailto:jslynne@gmail.com">
+                <span class="glyphicon glyphicon-envelope"></span>jslynne@gmail.com</a>
+              </p>
+                <a href="#button" >
+                <span class="glyphicon glyphicon-menu-down"></span>            
+                </a>
+            
+            </div>
         </div>
         
       </div>
+
       
     </div>
     <div class="container"> <!-- Phone Book -->
@@ -50,7 +64,7 @@
                     <input id="lastName" type="text" class="form-control" placeholder="Last Name" >
                   </div>
                   <div  class="form-group">                    
-                    <input id="phone" type="tel"   class="form-control" placeholder="(xxx) xxx-xxxx" value="(123) 123-1111">
+                    <input id="phone" type="tel"   class="form-control" placeholder="(xxx) xxx-xxxx">
                   </div>
                   
                   <button id="submit" type="submit" class="btn btn-add" >Add</button>
@@ -75,6 +89,7 @@
           </table>
           
         </div> 
+        
 
         
       </div>
@@ -112,7 +127,7 @@
         return false;
       }
       else if (lastName =="" )  {
-        alert("When you have 8 Johns in this phonebook, your going to wish you had added a last name");
+        alert("When you have 8 Johns in this phonebook, your going to wish you had added last names");
         return false;
       }
 
@@ -122,7 +137,7 @@
       }
 
       else if (phone.match(/[a-z]/i)) {
-        alert("Only numbers in this field please");
+        alert("Only numbers in the phone field please");
         return false;
       }
 
@@ -166,14 +181,33 @@
  
   });
   
- 
+ // contact bar
+    var contactBar = document.getElementById('contact-bar');
+
+    var contactButton = document.querySelector('[href="#button"]');
+
+     contactButton.addEventListener("click", contact, false);
+
+    function contact (e) {
+
+      if (contactBar.classList.contains("contact-close")) {
+        contactBar.classList.remove("contact-close");
+        contactBar.classList.add("contact-open");
+        
+      }
+      else {
+        contactBar.classList.remove("contact-open");
+        contactBar.classList.add("contact-close");
+       
+      }
+     }
   
 // on click of trashcan, delete row
   
     function removeRow(row) {
       row.parentElement.parentElement.remove();
     }
-
+// enforce format of editible text
     function validatePhone(el) {
       if (el.innerText.match(/^\(([0-9]{3})\)[ ]([0-9]{3})[-]([0-9]{4})$/)) {
 
@@ -186,7 +220,7 @@
       }
     }
 
-// set up global variable, take the content of sell when you click into it, set your new variable to own that content, call this variable above when the user is incorrect, and reset the inner text we selected to it
+// reset record text
       var currentNum = 0;
       function currentPhone(num) {
         currentNum = num.innerText;

@@ -21,26 +21,41 @@ td:last {
 }
 
 body {
-	background-color: #eee;
 }
 
 /*Header*/
 
 #banner {
-	background-color: #3C4965;
-	min-height: 20vh;
+	/*background-color: #3C4965;*/
+	background-image: url('photos/jelly.jpg');
+	background-size: cover;
+	background-position: 50% 50%;
 }
 
 #banner h1 {
 	color: #fff;
-	font-size: 3em;
-	padding: 35px 0 0 0;
+	font-size: 5em;
+	padding: 35px;
 	margin: 0;
 }
 
 #banner img {
-	padding-top: 35px;
-	margin-bottom: 30px;
+	padding: 35px;
+	margin-bottom: 10vh;
+	width: 30%;
+}
+
+.contact-open {
+	margin: 0;
+	transition: all .5s ease-out 0.1s;
+}
+
+.contact-close {
+	margin-top: -225px;
+}
+
+.glyphicon-menu-down {
+	font-size: 3em;
 }
 
 /*Table*/
@@ -51,6 +66,11 @@ form {
 }
 
 /*Form*/
+
+.btn:focus,
+.btn:hover {
+	color: #fff;
+}
 
 .btn-add {
 	background-color: #e05b20; 
@@ -63,16 +83,43 @@ form {
 	padding-right: 15px;
 }
 
-/*Footer*/
+
+
+.contact{
+	background-color: rgba(224, 91, 32, .8);
+	width: 300px;
+	padding: 10px 20px;
+
+}
 
 .contact p,
 .contact a,
 .contact a:hover {
-	
 	color: #fff;
 	font-family: 'Roboto', sans-serif;
 	font-size: 18px;
+	display: block;
+	text-decoration: none;
 
+}
+
+.contact a {
+	padding-left: 15px;
+}
+
+@media (max-width: 768px) {
+	
+	#contact-bar {
+		display: none;
+	}
+
+	#banner img {
+		width: 70%;
+	}
+
+	.contact-close {
+		margin-top: -345px;
+	}
 }
 
 
