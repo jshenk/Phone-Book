@@ -22,7 +22,7 @@
       <div id="banner" class="row">
 
         <div class="col-md-9 col-sm-9">
-          <img class="img-responsive" src="https://www.unleashed-technologies.com/sites/all/themes/ut_responsive/images/svgs/ut_logo_lg.svg" alt="logo">   
+          
           <h1>Phone Book</h1>       
         </div>    
 
@@ -34,7 +34,7 @@
                 <a href="https://github.com/jshenk" target="_blank">
                 <span class="glyphicon glyphicon-link"> </span>github.com/jshenk</a>
               </p>
-              <p>Here is my contact information when you decide you want to hire me:            
+              <p>My contact information:            
                 <a href="tel:301-509-9634"><span class="glyphicon glyphicon-phone-alt"></span>
                  301-509-9634</a>              
                 <a href="mailto:jslynne@gmail.com">
@@ -59,13 +59,16 @@
                   <h2>Add Contact</h2>
 
                   <div  class="form-group">
-                    <input id="firstName" type="text" class="form-control" placeholder="First Name" >
+                    <input id="firstName" type="text" class="form-control" placeholder="*First Name" >
                   </div>
                   <div  class="form-group">
-                    <input id="lastName" type="text" class="form-control" placeholder="Last Name" >
+                    <input id="lastName" type="text" class="form-control" placeholder="*Last Name" >
                   </div>
                   <div  class="form-group">                    
-                    <input id="phone" type="tel"   class="form-control" placeholder="(xxx) xxx-xxxx">
+                    <input id="phone" type="tel"   class="form-control" placeholder="*(xxx) xxx-xxxx" value="(123) 123-1234">
+                  </div>
+                  <div class="form-group">
+                    <input id="twitter" type="text" class="form-control" placeholder="twitter handle">                  
                   </div>
                   
                   <button id="submit" type="submit" class="btn btn-add" >Add</button>
@@ -80,11 +83,14 @@
                         <th width="160"><span class="glyphicon glyphicon-user"></span>First Name</th>
                         <th width="160">Last Name</th>
                         <th><span class="glyphicon glyphicon-phone-alt"></span>Phone</th>
+                        <th>Twitter</th>
                         <th></th>
                         <th></th>
+
                       </tr>
                 </thead>
                 <tbody>
+                  <a href=""></a>
                   
                 </tbody>
           </table>
@@ -112,6 +118,7 @@
       var firstName = document.getElementById('firstName').value;
       var lastName = document.getElementById('lastName').value;
       var phone = document.getElementById('phone').value;
+      var twitter = document.getElementById('twitter').value;
 
 // Phone Validation 
 
@@ -150,12 +157,13 @@
         return false;
       }
 
-      
+// Twitter
+     
 
 // Add records 
 
       //add tr and td with user information 
-      $('#phoneRecord tbody').append('<tr><td contenteditable = "true">' + firstName + '</td><td contenteditable = "true">' + lastName + '</td><td contenteditable = "true" onblur = "validatePhone(this)" onfocus = "currentPhone(this)">' + phone + '</td><td><span class="glyphicon glyphicon-trash" onclick="removeRow(this)"></span></td><td>Favorite</td>');
+      $('#phoneRecord tbody').append('<tr><td contenteditable = "true">' + firstName + '</td><td contenteditable = "true">' + lastName + '</td><td contenteditable = "true" onblur = "validatePhone(this)" onfocus = "currentPhone(this)">' + phone + '</td><td> <a href="https://twitter.com/'+ twitter +'" target=_blank>' + twitter + '</a></td><td><span class="glyphicon glyphicon-trash" onclick="removeRow(this)"></span></td><td>Favorite</td>');
 
  // Reset the form 
 
@@ -175,6 +183,7 @@
         $(this).css({"background-color": "#e05b20", "color": "#fff", "text-align": "center" });
 
         });
+// Twitter
       
       return false;
         
@@ -208,6 +217,8 @@
     function removeRow(row) {
       row.parentElement.parentElement.remove();
     }
+
+    
 // enforce format of editible text
     function validatePhone(el) {
       if (el.innerText.match(/^\(([0-9]{3})\)[ ]([0-9]{3})[-]([0-9]{4})$/)) {
